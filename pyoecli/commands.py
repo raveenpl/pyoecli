@@ -34,7 +34,6 @@ def attach_volume_to_iscsi_target(pool, volume, target,
         _cmd += " --lun %s" % (lun)
     if mode:
         _cmd += " --mode %s" % (mode)
-
     return execute_command(_cmd)
 
 
@@ -169,3 +168,17 @@ def shutdown():
     _cmd = "shutdown --yes"
     return execute_command(_cmd)
 
+
+@JSON_handler
+def create_pool(pool, vdevs, vdevs_mirror_multiple_group=False,
+                write_log=None, read_cache=None, spare=None):
+    _cmd = "create_pool --json --pool %s --vdevs %s" % (pool, vdevs)
+    if vdevs_mirror_multiple_group:
+        _cmd += "  --vdevs-mirror-multiple-group"
+    if write_log:
+        _cmd += " --write-log %s" % (write_log)
+    if read_cache:
+        _cmd += " --read-cache %s" % (read_cache)
+    if spare:
+        _cmd += " --spare %s" % (spare)
+    return execute_command(_cmd)

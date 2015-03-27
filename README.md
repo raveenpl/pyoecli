@@ -1,2 +1,2 @@
-# open-e-cli
-Open-E CLI Python bindings
+# pyoecli
+Open-E JovianDSS CLI Python bindings

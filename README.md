@@ -1,7 +1,7 @@
 # pyoecli
 Open-E JovianDSS CLI Python bindings
 
-Simple Python library for managing Open-E JovianDSS via CLI service.
+Simple Python library (unofficial) for managing Open-E JovianDSS via CLI service.
 
 From Open-E website (http://open-e.com):
 
@@ -10,9 +10,7 @@ From Open-E website (http://open-e.com):
 ## Requirements
 * JovianDSS with enabled CLI service.
 
-## How to use
-
-### Installation
+## Installation
 
 ```
 git clone https://github.com/raveenpl/pyoecli.git
@@ -22,12 +20,12 @@ git clone https://github.com/raveenpl/pyoecli.git
 pyoecli# python setup.py install
 ```
 
-### Configuration
+## Configuration
 Configure authorization settings in /etc/oecli/ssh.conf. Data to fill: address, port, username, password or key_file. 
 
 **Note**: Ensure that authorization settings file is read protected so only administrator is able to view it.
 
-### Code Sample
+## Code Sample
 
 ```
 from pyoecli import commands
@@ -96,4 +94,3 @@ Example output:
   u'error': None
 }
 ```
-

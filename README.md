@@ -1,9 +1,10 @@
 # pyoecli
 Open-E JovianDSS CLI Python bindings
 
-Simple library for managing Open-E JovianDSS via CLI service.
+Simple Python library for managing Open-E JovianDSS via CLI service.
 
 From Open-E website (http://open-e.com):
+
 *Open-E JovianDSS is a ZFS- and Linux-based Data Storage Software designed especially for enterprise-sized storage environments. With its unique features, the product ensures highest data reliability and integrity. It addresses the needs of enterprise users seeking a unified NAS and SAN solution with thin provisioning, compression and deduplication.*
 
 ## Requirements
@@ -11,7 +12,7 @@ From Open-E website (http://open-e.com):
 
 ## How to use
 
-1. Install package using following commands:
+### Installation
 
 ```
 git clone https://github.com/raveenpl/pyoecli.git
@@ -21,11 +22,12 @@ git clone https://github.com/raveenpl/pyoecli.git
 pyoecli# python setup.py install
 ```
 
-2. Configure authorization settings in /etc/oecli/ssh.conf. Data to fill: address, port, username, password or key_file. 
+### Configuration
+Configure authorization settings in /etc/oecli/ssh.conf. Data to fill: address, port, username, password or key_file. 
 
 **Note**: Ensure that authorization settings file is read protected so only administrator is able to view it.
 
-3. Code samples:
+### Code Sample
 
 ```
 from pyoecli import commands

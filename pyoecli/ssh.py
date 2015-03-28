@@ -15,10 +15,13 @@ class CommunicationError(Exception):
     CMD_ERROR = 1
     CONNECTION_PROBLEM = 2
     AUTHENTICATION_PROBLEM = 3
-    MISMATCH_CONFIGURATION = 4
+    CONF_MISMATCH = 4
 
 
 class SSHClient(object):
+    """
+    Class representing SSH cli connection.
+    """
     def __init__(self, hostname, port, username, 
                     password=None, key_filename=None):
         self.hostname = hostname
@@ -56,8 +59,11 @@ def get_ssh_credentials(config_name=CREDENTIALS_CONFIG):
     """
     Gets credentials data from config.
 
-    :param config_name: config to load.
-    :returns: dict with credentials data.
+    Args:
+        config_name: config to load.
+
+    Returns:
+        dict: credentials data.
     """
 
     credentials = {}
@@ -81,7 +87,7 @@ def get_ssh_credentials(config_name=CREDENTIALS_CONFIG):
 
     except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
         raise CommunicationError("Mismatch configuration.",
-                CommunicationError.MISMATCH_CONFIGURATION)
+                CommunicationError.CONF_MISMATCH)
     return credentials
 
 
@@ -89,8 +95,11 @@ def execute_command(command):
     """
     Executes SSH command.
 
-    :param command: command to execute.
-    :returns: command output.
+    Args:
+        command: command to execute
+
+    Returns:
+        str: command output
     """
 
     credentials = get_ssh_credentials()
